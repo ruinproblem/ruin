@@ -44,7 +44,7 @@ At a fill price `p0`, leverage `L` and current price `p`, let `y = 1 + side × L
 
 A request uses its request slot's SlotHashes hash to select an inclusive delay between `delay_min` and `delay_max`. Its fill must land from the target through target + `fill_window`, and use a newer, fresh oracle publication. After the request slot + `delay_max` + `fill_window`, anyone can refund an unfilled request. A stop has the same delayed selection and a `close_window`; it needs an oracle publication newer than the close request's publication. A missed stop window permits another stop request. A line takes precedence over a stop, and a stop over expiry. Once `expiry_secs` has passed since fill, anyone can settle with the fresh current value.
 
-Default mainnet preparation values are leverage 500–1000, k 1–100, edge 0–20%, expiry 86,400 seconds, minimum margin 1,000,000 raw USDC ($1), free stake 100,000,000 raw USDC ($100), delay 10–23 slots, fill/close windows 4 slots, and maximum oracle age 30 seconds. Delay is measured again before initialization. Slot time varies; slots govern the windows.
+Default mainnet preparation values are leverage 500–1000, k 1–100, edge 0–10%, expiry 259,200 seconds (72 hours), minimum margin 1,000,000 raw USDC ($1), free stake 100,000,000 raw USDC ($100), delay 10–23 slots, fill/close windows 4 slots, and maximum oracle age 30 seconds. Delay is measured again before initialization. Slot time varies; slots govern the windows.
 
 ## Configuration and authority
 
