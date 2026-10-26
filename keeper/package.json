@@ -1,0 +1,24 @@
+{
+  "name": "ruin-keeper",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "keeper": "node --import tsx src/keeper/main.ts",
+    "tape": "node --import tsx src/tape/main.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@solana-program/system": "0.15.0",
+    "@solana-program/token": "0.17.0",
+    "@solana/kit": "8.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "26.0.0",
+    "tsx": "4.21.0",
+    "typescript": "6.0.2",
+    "vitest": "5.0.3",
+    "ws": "8.22.0"
+  }
+}

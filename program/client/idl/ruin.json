@@ -1,0 +1,3043 @@
+{
+  "address": "Ho2q71TyPF3ywjq5mwm8PoPZBT2bVk5jJsKWsrffeamw",
+  "metadata": {
+    "name": "ruin",
+    "version": "0.1.0",
+    "spec": "0.1.0"
+  },
+  "instructions": [
+    {
+      "name": "close_house",
+      "discriminator": [
+        122,
+        1,
+        139,
+        0,
+        208,
+        240,
+        48,
+        151
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "owner",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "house",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  104,
+                  111,
+                  117,
+                  115,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "house.id",
+                "account": "House"
+              }
+            ]
+          }
+        },
+        {
+          "name": "quote_mint"
+        },
+        {
+          "name": "vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  104,
+                  111,
+                  117,
+                  115,
+                  101,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "house"
+              }
+            ]
+          }
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "destination",
+          "writable": true
+        },
+        {
+          "name": "ruin_mint",
+          "optional": true
+        },
+        {
+          "name": "ruin_token_program",
+          "optional": true
+        },
+        {
+          "name": "lock_vault",
+          "writable": true,
+          "optional": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  108,
+                  111,
+                  99,
+                  107,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "house"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ruin_account",
+          "writable": true,
+          "optional": true
+        },
+        {
+          "name": "event_authority"
+        },
+        {
+          "name": "program"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "fill_open",
+      "discriminator": [
+        164,
+        168,
+        142,
+        126,
+        207,
+        188,
+        57,
+        253
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "house",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  104,
+                  111,
+                  117,
+                  115,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "house.id",
+                "account": "House"
+              }
+            ]
+          },
+          "relations": [
+            "table"
+          ]
+        },
+        {
+          "name": "table",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  116,
+                  97,
+                  98,
+                  108,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "house"
+              },
+              {
+                "kind": "account",
+                "path": "table.seq",
+                "account": "Table"
+              }
+            ]
+          }
+        },
+        {
+          "name": "feed"
+        },
+        {
+          "name": "event_authority"
+        },
+        {
+          "name": "program"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "init",
+      "discriminator": [
+        220,
+        59,
+        207,
+        236,
+        108,
+        250,
+        47,
+        100
+      ],
+      "accounts": [
+        {
+          "name": "guard",
+          "accounts": [
+            {
+              "name": "authority",
+              "writable": true,
+              "signer": true
+            },
+            {
+              "name": "deployment",
+              "address": "Ho2q71TyPF3ywjq5mwm8PoPZBT2bVk5jJsKWsrffeamw"
+            },
+            {
+              "name": "program_data"
+            }
+          ]
+        },
+        {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "quote_mint"
+        },
+        {
+          "name": "sol_feed"
+        },
+        {
+          "name": "btc_feed"
+        },
+        {
+          "name": "eth_feed"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "event_authority"
+        },
+        {
+          "name": "program"
+        }
+      ],
+      "args": [
+        {
+          "name": "args",
+          "type": {
+            "defined": {
+              "name": "InitArgs"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "post_house",
+      "discriminator": [
+        38,
+        238,
+        208,
+        153,
+        4,
+        211,
+        255,
+        38
+      ],
+      "accounts": [
+        {
+          "name": "guard",
+          "accounts": [
+            {
+              "name": "config",
+              "writable": true,
+              "pda": {
+                "seeds": [
+                  {
+                    "kind": "const",
+                    "value": [
+                      99,
+                      111,
+                      110,
+                      102,
+                      105,
+                      103
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "owner",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "house",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  104,
+                  111,
+                  117,
+                  115,
+                  101
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "quote_mint"
+        },
+        {
+          "name": "vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  104,
+                  111,
+                  117,
+                  115,
+                  101,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "house"
+              }
+            ]
+          }
+        },
+        {
+          "name": "source",
+          "writable": true
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "ruin_mint",
+          "optional": true
+        },
+        {
+          "name": "ruin_token_program",
+          "optional": true
+        },
+        {
+          "name": "lock_vault",
+          "writable": true,
+          "optional": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  108,
+                  111,
+                  99,
+                  107,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "house"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ruin_account",
+          "writable": true,
+          "optional": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "event_authority"
+        },
+        {
+          "name": "program"
+        }
+      ],
+      "args": [
+        {
+          "name": "id",
+          "type": "u64"
+        },
+        {
+          "name": "market",
+          "type": "u8"
+        },
+        {
+          "name": "sides",
+          "type": "u8"
+        },
+        {
+          "name": "k",
+          "type": "u8"
+        },
+        {
+          "name": "e_bps",
+          "type": "u16"
+        },
+        {
+          "name": "stake",
+          "type": "u64"
+        },
+        {
+          "name": "ruin_amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "refund_open",
+      "discriminator": [
+        229,
+        105,
+        121,
+        50,
+        160,
+        250,
+        173,
+        1
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "house",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  104,
+                  111,
+                  117,
+                  115,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "house.id",
+                "account": "House"
+              }
+            ]
+          },
+          "relations": [
+            "table"
+          ]
+        },
+        {
+          "name": "table",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  116,
+                  97,
+                  98,
+                  108,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "house"
+              },
+              {
+                "kind": "account",
+                "path": "table.seq",
+                "account": "Table"
+              }
+            ]
+          }
+        },
+        {
+          "name": "quote_mint"
+        },
+        {
+          "name": "vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  104,
+                  111,
+                  117,
+                  115,
+                  101,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "house"
+              }
+            ]
+          }
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "destination",
+          "writable": true
+        },
+        {
+          "name": "trader",
+          "writable": true
+        },
+        {
+          "name": "event_authority"
+        },
+        {
+          "name": "program"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "request_close",
+      "discriminator": [
+        82,
+        168,
+        167,
+        86,
+        14,
+        15,
+        199,
+        180
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "house",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  104,
+                  111,
+                  117,
+                  115,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "house.id",
+                "account": "House"
+              }
+            ]
+          },
+          "relations": [
+            "table"
+          ]
+        },
+        {
+          "name": "table",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  116,
+                  97,
+                  98,
+                  108,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "house"
+              },
+              {
+                "kind": "account",
+                "path": "table.seq",
+                "account": "Table"
+              }
+            ]
+          }
+        },
+        {
+          "name": "trader",
+          "signer": true
+        },
+        {
+          "name": "feed"
+        },
+        {
+          "name": "event_authority"
+        },
+        {
+          "name": "program"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "request_open",
+      "discriminator": [
+        10,
+        8,
+        231,
+        216,
+        47,
+        200,
+        86,
+        213
+      ],
+      "accounts": [
+        {
+          "name": "guard",
+          "accounts": [
+            {
+              "name": "config",
+              "pda": {
+                "seeds": [
+                  {
+                    "kind": "const",
+                    "value": [
+                      99,
+                      111,
+                      110,
+                      102,
+                      105,
+                      103
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "name": "house",
+              "writable": true,
+              "pda": {
+                "seeds": [
+                  {
+                    "kind": "const",
+                    "value": [
+                      104,
+                      111,
+                      117,
+                      115,
+                      101
+                    ]
+                  },
+                  {
+                    "kind": "account",
+                    "path": "house.id",
+                    "account": "House"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "trader",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "table",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  116,
+                  97,
+                  98,
+                  108,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "guard.house",
+                "account": "IdleGuard"
+              },
+              {
+                "kind": "account",
+                "path": "guard.house.next_seq",
+                "account": "IdleGuard"
+              }
+            ]
+          }
+        },
+        {
+          "name": "quote_mint"
+        },
+        {
+          "name": "vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  104,
+                  111,
+                  117,
+                  115,
+                  101,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "guard.house",
+                "account": "IdleGuard"
+              }
+            ]
+          }
+        },
+        {
+          "name": "source",
+          "writable": true
+        },
+        {
+          "name": "feed"
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "event_authority"
+        },
+        {
+          "name": "program"
+        }
+      ],
+      "args": [
+        {
+          "name": "side",
+          "type": {
+            "defined": {
+              "name": "Side"
+            }
+          }
+        },
+        {
+          "name": "lev",
+          "type": "u16"
+        },
+        {
+          "name": "m",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "set_accepting",
+      "discriminator": [
+        158,
+        244,
+        194,
+        50,
+        50,
+        228,
+        51,
+        20
+      ],
+      "accounts": [
+        {
+          "name": "owner",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "house",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  104,
+                  111,
+                  117,
+                  115,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "house.id",
+                "account": "House"
+              }
+            ]
+          }
+        },
+        {
+          "name": "event_authority"
+        },
+        {
+          "name": "program"
+        }
+      ],
+      "args": [
+        {
+          "name": "accepting",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "set_feed",
+      "discriminator": [
+        79,
+        150,
+        2,
+        207,
+        41,
+        104,
+        77,
+        41
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "signer": true,
+          "relations": [
+            "config"
+          ]
+        },
+        {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "feed"
+        },
+        {
+          "name": "event_authority"
+        },
+        {
+          "name": "program"
+        }
+      ],
+      "args": [
+        {
+          "name": "market",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "set_params",
+      "discriminator": [
+        27,
+        234,
+        178,
+        52,
+        147,
+        2,
+        187,
+        141
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "signer": true,
+          "relations": [
+            "config"
+          ]
+        },
+        {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "event_authority"
+        },
+        {
+          "name": "program"
+        }
+      ],
+      "args": [
+        {
+          "name": "m_min",
+          "type": "u64"
+        },
+        {
+          "name": "free_stake",
+          "type": "u64"
+        },
+        {
+          "name": "ruin_per_usd",
+          "type": "u64"
+        },
+        {
+          "name": "delay_min",
+          "type": "u16"
+        },
+        {
+          "name": "delay_max",
+          "type": "u16"
+        },
+        {
+          "name": "fill_window",
+          "type": "u16"
+        },
+        {
+          "name": "close_window",
+          "type": "u16"
+        },
+        {
+          "name": "stale_secs",
+          "type": "u32"
+        }
+      ]
+    },
+    {
+      "name": "set_ruin",
+      "discriminator": [
+        22,
+        217,
+        242,
+        194,
+        210,
+        24,
+        115,
+        118
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "signer": true,
+          "relations": [
+            "config"
+          ]
+        },
+        {
+          "name": "config",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "ruin_mint"
+        },
+        {
+          "name": "event_authority"
+        },
+        {
+          "name": "program"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "settle",
+      "discriminator": [
+        175,
+        42,
+        185,
+        87,
+        144,
+        131,
+        102,
+        212
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "house",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  104,
+                  111,
+                  117,
+                  115,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "house.id",
+                "account": "House"
+              }
+            ]
+          },
+          "relations": [
+            "table"
+          ]
+        },
+        {
+          "name": "table",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  116,
+                  97,
+                  98,
+                  108,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "house"
+              },
+              {
+                "kind": "account",
+                "path": "table.seq",
+                "account": "Table"
+              }
+            ]
+          }
+        },
+        {
+          "name": "quote_mint"
+        },
+        {
+          "name": "vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  104,
+                  111,
+                  117,
+                  115,
+                  101,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "house"
+              }
+            ]
+          }
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "destination",
+          "writable": true,
+          "optional": true
+        },
+        {
+          "name": "trader",
+          "writable": true
+        },
+        {
+          "name": "feed"
+        },
+        {
+          "name": "event_authority"
+        },
+        {
+          "name": "program"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "top_up",
+      "discriminator": [
+        236,
+        225,
+        96,
+        9,
+        60,
+        106,
+        77,
+        208
+      ],
+      "accounts": [
+        {
+          "name": "guard",
+          "accounts": [
+            {
+              "name": "config",
+              "pda": {
+                "seeds": [
+                  {
+                    "kind": "const",
+                    "value": [
+                      99,
+                      111,
+                      110,
+                      102,
+                      105,
+                      103
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "name": "house",
+              "writable": true,
+              "pda": {
+                "seeds": [
+                  {
+                    "kind": "const",
+                    "value": [
+                      104,
+                      111,
+                      117,
+                      115,
+                      101
+                    ]
+                  },
+                  {
+                    "kind": "account",
+                    "path": "house.id",
+                    "account": "House"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "owner",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "quote_mint"
+        },
+        {
+          "name": "vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  104,
+                  111,
+                  117,
+                  115,
+                  101,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "guard.house",
+                "account": "IdleGuard"
+              }
+            ]
+          }
+        },
+        {
+          "name": "source",
+          "writable": true
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "ruin_mint",
+          "optional": true
+        },
+        {
+          "name": "ruin_token_program",
+          "optional": true
+        },
+        {
+          "name": "lock_vault",
+          "writable": true,
+          "optional": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  108,
+                  111,
+                  99,
+                  107,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "guard.house",
+                "account": "IdleGuard"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ruin_account",
+          "writable": true,
+          "optional": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "event_authority"
+        },
+        {
+          "name": "program"
+        }
+      ],
+      "args": [
+        {
+          "name": "quote_amount",
+          "type": "u64"
+        },
+        {
+          "name": "ruin_amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "withdraw",
+      "discriminator": [
+        183,
+        18,
+        70,
+        156,
+        148,
+        109,
+        161,
+        34
+      ],
+      "accounts": [
+        {
+          "name": "config",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "owner",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "house",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  104,
+                  111,
+                  117,
+                  115,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "house.id",
+                "account": "House"
+              }
+            ]
+          }
+        },
+        {
+          "name": "quote_mint"
+        },
+        {
+          "name": "vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  104,
+                  111,
+                  117,
+                  115,
+                  101,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "house"
+              }
+            ]
+          }
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "destination",
+          "writable": true
+        },
+        {
+          "name": "ruin_mint",
+          "optional": true
+        },
+        {
+          "name": "ruin_token_program",
+          "optional": true
+        },
+        {
+          "name": "lock_vault",
+          "writable": true,
+          "optional": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  108,
+                  111,
+                  99,
+                  107,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "house"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ruin_account",
+          "writable": true,
+          "optional": true
+        },
+        {
+          "name": "event_authority"
+        },
+        {
+          "name": "program"
+        }
+      ],
+      "args": [
+        {
+          "name": "quote_amount",
+          "type": "u64"
+        },
+        {
+          "name": "ruin_amount",
+          "type": "u64"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Config",
+      "discriminator": [
+        155,
+        12,
+        170,
+        224,
+        30,
+        250,
+        204,
+        130
+      ]
+    },
+    {
+      "name": "House",
+      "discriminator": [
+        21,
+        145,
+        94,
+        109,
+        254,
+        199,
+        210,
+        151
+      ]
+    },
+    {
+      "name": "Table",
+      "discriminator": [
+        34,
+        100,
+        138,
+        97,
+        236,
+        129,
+        230,
+        112
+      ]
+    }
+  ],
+  "events": [
+    {
+      "name": "CloseRequested",
+      "discriminator": [
+        136,
+        120,
+        170,
+        78,
+        168,
+        236,
+        47,
+        118
+      ]
+    },
+    {
+      "name": "FeedSet",
+      "discriminator": [
+        227,
+        151,
+        44,
+        58,
+        171,
+        159,
+        194,
+        12
+      ]
+    },
+    {
+      "name": "HouseAccepting",
+      "discriminator": [
+        83,
+        152,
+        195,
+        83,
+        101,
+        140,
+        143,
+        188
+      ]
+    },
+    {
+      "name": "HouseClosed",
+      "discriminator": [
+        137,
+        103,
+        208,
+        229,
+        236,
+        46,
+        129,
+        54
+      ]
+    },
+    {
+      "name": "HouseFunded",
+      "discriminator": [
+        153,
+        127,
+        126,
+        162,
+        239,
+        83,
+        35,
+        120
+      ]
+    },
+    {
+      "name": "HousePosted",
+      "discriminator": [
+        130,
+        47,
+        193,
+        210,
+        102,
+        110,
+        20,
+        145
+      ]
+    },
+    {
+      "name": "Initialized",
+      "discriminator": [
+        208,
+        213,
+        115,
+        98,
+        115,
+        82,
+        201,
+        209
+      ]
+    },
+    {
+      "name": "OpenRefunded",
+      "discriminator": [
+        210,
+        96,
+        116,
+        172,
+        32,
+        193,
+        207,
+        11
+      ]
+    },
+    {
+      "name": "OpenRequested",
+      "discriminator": [
+        250,
+        233,
+        179,
+        0,
+        52,
+        172,
+        211,
+        7
+      ]
+    },
+    {
+      "name": "Opened",
+      "discriminator": [
+        166,
+        172,
+        97,
+        9,
+        77,
+        76,
+        189,
+        109
+      ]
+    },
+    {
+      "name": "ParamsSet",
+      "discriminator": [
+        57,
+        111,
+        33,
+        252,
+        120,
+        76,
+        98,
+        245
+      ]
+    },
+    {
+      "name": "RuinSet",
+      "discriminator": [
+        232,
+        134,
+        56,
+        21,
+        69,
+        237,
+        76,
+        57
+      ]
+    },
+    {
+      "name": "Settled",
+      "discriminator": [
+        232,
+        210,
+        40,
+        17,
+        142,
+        124,
+        145,
+        238
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "NotUpgradeAuthority"
+    },
+    {
+      "code": 6001,
+      "name": "NotAdmin"
+    },
+    {
+      "code": 6002,
+      "name": "InvalidValue"
+    },
+    {
+      "code": 6003,
+      "name": "QuoteMintInvalid"
+    },
+    {
+      "code": 6004,
+      "name": "FeedInvalid"
+    },
+    {
+      "code": 6005,
+      "name": "FeedNotConfig"
+    },
+    {
+      "code": 6006,
+      "name": "FeedAssetMismatch"
+    },
+    {
+      "code": 6007,
+      "name": "FeedStale"
+    },
+    {
+      "code": 6008,
+      "name": "FeedNotNewer"
+    },
+    {
+      "code": 6009,
+      "name": "RuinAlreadySet"
+    },
+    {
+      "code": 6010,
+      "name": "RuinNotSet"
+    },
+    {
+      "code": 6011,
+      "name": "RuinNotEnabled"
+    },
+    {
+      "code": 6012,
+      "name": "UnsupportedTokenProgram"
+    },
+    {
+      "code": 6013,
+      "name": "TransferHookActive"
+    },
+    {
+      "code": 6014,
+      "name": "TransferFeeMint"
+    },
+    {
+      "code": 6015,
+      "name": "DefaultStateFrozen"
+    },
+    {
+      "code": 6016,
+      "name": "IdMismatch"
+    },
+    {
+      "code": 6017,
+      "name": "NotOwner"
+    },
+    {
+      "code": 6018,
+      "name": "NotTrader"
+    },
+    {
+      "code": 6019,
+      "name": "NotIdle"
+    },
+    {
+      "code": 6020,
+      "name": "NotAccepting"
+    },
+    {
+      "code": 6021,
+      "name": "SideNotAllowed"
+    },
+    {
+      "code": 6022,
+      "name": "LeverageOutOfRange"
+    },
+    {
+      "code": 6023,
+      "name": "MarginTooSmall"
+    },
+    {
+      "code": 6024,
+      "name": "HouseTooSmall"
+    },
+    {
+      "code": 6025,
+      "name": "LockShort"
+    },
+    {
+      "code": 6026,
+      "name": "StakeOverFree"
+    },
+    {
+      "code": 6027,
+      "name": "DepositMismatch"
+    },
+    {
+      "code": 6028,
+      "name": "NotRequested"
+    },
+    {
+      "code": 6029,
+      "name": "NotLive"
+    },
+    {
+      "code": 6030,
+      "name": "BeforeWindow"
+    },
+    {
+      "code": 6031,
+      "name": "AfterWindow"
+    },
+    {
+      "code": 6032,
+      "name": "WindowNotPassed"
+    },
+    {
+      "code": 6033,
+      "name": "SlotHashMissing"
+    },
+    {
+      "code": 6034,
+      "name": "NothingToSettle"
+    },
+    {
+      "code": 6035,
+      "name": "MissingTraderAccount"
+    },
+    {
+      "code": 6036,
+      "name": "WrongMint"
+    },
+    {
+      "code": 6037,
+      "name": "WrongOwner"
+    },
+    {
+      "code": 6038,
+      "name": "ReceiverMismatch"
+    },
+    {
+      "code": 6039,
+      "name": "Overflow"
+    }
+  ],
+  "types": [
+    {
+      "name": "CloseRequested",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "table",
+            "type": "pubkey"
+          },
+          {
+            "name": "house",
+            "type": "pubkey"
+          },
+          {
+            "name": "seq",
+            "type": "u64"
+          },
+          {
+            "name": "close_request_slot",
+            "type": "u64"
+          },
+          {
+            "name": "close_publish_ts",
+            "type": "i64"
+          },
+          {
+            "name": "price",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Config",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "admin",
+            "type": "pubkey"
+          },
+          {
+            "name": "quote_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "ruin_mint",
+            "type": {
+              "option": "pubkey"
+            }
+          },
+          {
+            "name": "ruin_token_program",
+            "type": {
+              "option": "pubkey"
+            }
+          },
+          {
+            "name": "markets",
+            "type": {
+              "array": [
+                {
+                  "defined": {
+                    "name": "Market"
+                  }
+                },
+                3
+              ]
+            }
+          },
+          {
+            "name": "lev_min",
+            "type": "u16"
+          },
+          {
+            "name": "lev_max",
+            "type": "u16"
+          },
+          {
+            "name": "k_min",
+            "type": "u8"
+          },
+          {
+            "name": "k_max",
+            "type": "u8"
+          },
+          {
+            "name": "e_min_bps",
+            "type": "u16"
+          },
+          {
+            "name": "e_max_bps",
+            "type": "u16"
+          },
+          {
+            "name": "expiry_secs",
+            "type": "u32"
+          },
+          {
+            "name": "m_min",
+            "type": "u64"
+          },
+          {
+            "name": "free_stake",
+            "type": "u64"
+          },
+          {
+            "name": "ruin_per_usd",
+            "type": "u64"
+          },
+          {
+            "name": "delay_min",
+            "type": "u16"
+          },
+          {
+            "name": "delay_max",
+            "type": "u16"
+          },
+          {
+            "name": "fill_window",
+            "type": "u16"
+          },
+          {
+            "name": "close_window",
+            "type": "u16"
+          },
+          {
+            "name": "stale_secs",
+            "type": "u32"
+          },
+          {
+            "name": "next_house_id",
+            "type": "u64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "End",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "TraderLine"
+          },
+          {
+            "name": "HouseLine"
+          },
+          {
+            "name": "Stop"
+          },
+          {
+            "name": "Expiry"
+          }
+        ]
+      }
+    },
+    {
+      "name": "FeedSet",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "market",
+            "type": "u8"
+          },
+          {
+            "name": "old_feed",
+            "type": "pubkey"
+          },
+          {
+            "name": "new_feed",
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "House",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "id",
+            "type": "u64"
+          },
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "market",
+            "type": "u8"
+          },
+          {
+            "name": "sides",
+            "type": "u8"
+          },
+          {
+            "name": "k",
+            "type": "u8"
+          },
+          {
+            "name": "e_bps",
+            "type": "u16"
+          },
+          {
+            "name": "stake",
+            "type": "u64"
+          },
+          {
+            "name": "free_stake",
+            "type": "u64"
+          },
+          {
+            "name": "ruin_per_usd",
+            "type": "u64"
+          },
+          {
+            "name": "ruin_locked",
+            "type": "u64"
+          },
+          {
+            "name": "accepting",
+            "type": "bool"
+          },
+          {
+            "name": "state",
+            "type": {
+              "defined": {
+                "name": "HouseState"
+              }
+            }
+          },
+          {
+            "name": "next_seq",
+            "type": "u64"
+          },
+          {
+            "name": "current_seq",
+            "type": "u64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "vault_bump",
+            "type": "u8"
+          },
+          {
+            "name": "lock_vault_bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "HouseAccepting",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "house",
+            "type": "pubkey"
+          },
+          {
+            "name": "accepting",
+            "type": "bool"
+          }
+        ]
+      }
+    },
+    {
+      "name": "HouseClosed",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "house",
+            "type": "pubkey"
+          },
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "quote_returned",
+            "type": "u64"
+          },
+          {
+            "name": "ruin_returned",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "HouseFunded",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "house",
+            "type": "pubkey"
+          },
+          {
+            "name": "quote_in",
+            "type": "u64"
+          },
+          {
+            "name": "ruin_in",
+            "type": "u64"
+          },
+          {
+            "name": "quote_out",
+            "type": "u64"
+          },
+          {
+            "name": "ruin_out",
+            "type": "u64"
+          },
+          {
+            "name": "stake",
+            "type": "u64"
+          },
+          {
+            "name": "ruin_locked",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "HousePosted",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "house",
+            "type": "pubkey"
+          },
+          {
+            "name": "id",
+            "type": "u64"
+          },
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "market",
+            "type": "u8"
+          },
+          {
+            "name": "sides",
+            "type": "u8"
+          },
+          {
+            "name": "k",
+            "type": "u8"
+          },
+          {
+            "name": "e_bps",
+            "type": "u16"
+          },
+          {
+            "name": "stake",
+            "type": "u64"
+          },
+          {
+            "name": "free_stake",
+            "type": "u64"
+          },
+          {
+            "name": "ruin_per_usd",
+            "type": "u64"
+          },
+          {
+            "name": "ruin_locked",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "HouseState",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Idle"
+          },
+          {
+            "name": "Busy"
+          }
+        ]
+      }
+    },
+    {
+      "name": "InitArgs",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "admin",
+            "type": "pubkey"
+          },
+          {
+            "name": "lev_min",
+            "type": "u16"
+          },
+          {
+            "name": "lev_max",
+            "type": "u16"
+          },
+          {
+            "name": "k_min",
+            "type": "u8"
+          },
+          {
+            "name": "k_max",
+            "type": "u8"
+          },
+          {
+            "name": "e_min_bps",
+            "type": "u16"
+          },
+          {
+            "name": "e_max_bps",
+            "type": "u16"
+          },
+          {
+            "name": "expiry_secs",
+            "type": "u32"
+          },
+          {
+            "name": "m_min",
+            "type": "u64"
+          },
+          {
+            "name": "free_stake",
+            "type": "u64"
+          },
+          {
+            "name": "ruin_per_usd",
+            "type": "u64"
+          },
+          {
+            "name": "delay_min",
+            "type": "u16"
+          },
+          {
+            "name": "delay_max",
+            "type": "u16"
+          },
+          {
+            "name": "fill_window",
+            "type": "u16"
+          },
+          {
+            "name": "close_window",
+            "type": "u16"
+          },
+          {
+            "name": "stale_secs",
+            "type": "u32"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Initialized",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "admin",
+            "type": "pubkey"
+          },
+          {
+            "name": "quote_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "markets",
+            "type": {
+              "array": [
+                {
+                  "defined": {
+                    "name": "Market"
+                  }
+                },
+                3
+              ]
+            }
+          },
+          {
+            "name": "lev_min",
+            "type": "u16"
+          },
+          {
+            "name": "lev_max",
+            "type": "u16"
+          },
+          {
+            "name": "k_min",
+            "type": "u8"
+          },
+          {
+            "name": "k_max",
+            "type": "u8"
+          },
+          {
+            "name": "e_min_bps",
+            "type": "u16"
+          },
+          {
+            "name": "e_max_bps",
+            "type": "u16"
+          },
+          {
+            "name": "expiry_secs",
+            "type": "u32"
+          },
+          {
+            "name": "m_min",
+            "type": "u64"
+          },
+          {
+            "name": "free_stake",
+            "type": "u64"
+          },
+          {
+            "name": "ruin_per_usd",
+            "type": "u64"
+          },
+          {
+            "name": "delay_min",
+            "type": "u16"
+          },
+          {
+            "name": "delay_max",
+            "type": "u16"
+          },
+          {
+            "name": "fill_window",
+            "type": "u16"
+          },
+          {
+            "name": "close_window",
+            "type": "u16"
+          },
+          {
+            "name": "stale_secs",
+            "type": "u32"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Market",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "feed",
+            "type": "pubkey"
+          },
+          {
+            "name": "asset",
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "OpenRefunded",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "table",
+            "type": "pubkey"
+          },
+          {
+            "name": "house",
+            "type": "pubkey"
+          },
+          {
+            "name": "seq",
+            "type": "u64"
+          },
+          {
+            "name": "trader",
+            "type": "pubkey"
+          },
+          {
+            "name": "m",
+            "type": "u64"
+          },
+          {
+            "name": "slot",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "OpenRequested",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "table",
+            "type": "pubkey"
+          },
+          {
+            "name": "house",
+            "type": "pubkey"
+          },
+          {
+            "name": "seq",
+            "type": "u64"
+          },
+          {
+            "name": "trader",
+            "type": "pubkey"
+          },
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "market",
+            "type": "u8"
+          },
+          {
+            "name": "side",
+            "type": {
+              "defined": {
+                "name": "Side"
+              }
+            }
+          },
+          {
+            "name": "lev",
+            "type": "u16"
+          },
+          {
+            "name": "m",
+            "type": "u64"
+          },
+          {
+            "name": "k",
+            "type": "u8"
+          },
+          {
+            "name": "e_bps",
+            "type": "u16"
+          },
+          {
+            "name": "request_slot",
+            "type": "u64"
+          },
+          {
+            "name": "request_publish_ts",
+            "type": "i64"
+          },
+          {
+            "name": "request_price",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Opened",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "table",
+            "type": "pubkey"
+          },
+          {
+            "name": "house",
+            "type": "pubkey"
+          },
+          {
+            "name": "seq",
+            "type": "u64"
+          },
+          {
+            "name": "delay",
+            "type": "u64"
+          },
+          {
+            "name": "p0",
+            "type": "u64"
+          },
+          {
+            "name": "fill_slot",
+            "type": "u64"
+          },
+          {
+            "name": "fill_publish_ts",
+            "type": "i64"
+          },
+          {
+            "name": "fill_ts",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ParamsSet",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "m_min",
+            "type": "u64"
+          },
+          {
+            "name": "free_stake",
+            "type": "u64"
+          },
+          {
+            "name": "ruin_per_usd",
+            "type": "u64"
+          },
+          {
+            "name": "delay_min",
+            "type": "u16"
+          },
+          {
+            "name": "delay_max",
+            "type": "u16"
+          },
+          {
+            "name": "fill_window",
+            "type": "u16"
+          },
+          {
+            "name": "close_window",
+            "type": "u16"
+          },
+          {
+            "name": "stale_secs",
+            "type": "u32"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RuinSet",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "ruin_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "ruin_token_program",
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Settled",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "table",
+            "type": "pubkey"
+          },
+          {
+            "name": "house",
+            "type": "pubkey"
+          },
+          {
+            "name": "seq",
+            "type": "u64"
+          },
+          {
+            "name": "trader",
+            "type": "pubkey"
+          },
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "market",
+            "type": "u8"
+          },
+          {
+            "name": "side",
+            "type": {
+              "defined": {
+                "name": "Side"
+              }
+            }
+          },
+          {
+            "name": "lev",
+            "type": "u16"
+          },
+          {
+            "name": "m",
+            "type": "u64"
+          },
+          {
+            "name": "k",
+            "type": "u8"
+          },
+          {
+            "name": "e_bps",
+            "type": "u16"
+          },
+          {
+            "name": "p0",
+            "type": "u64"
+          },
+          {
+            "name": "fill_slot",
+            "type": "u64"
+          },
+          {
+            "name": "fill_publish_ts",
+            "type": "i64"
+          },
+          {
+            "name": "fill_ts",
+            "type": "i64"
+          },
+          {
+            "name": "end",
+            "type": {
+              "defined": {
+                "name": "End"
+              }
+            }
+          },
+          {
+            "name": "p_end",
+            "type": "u64"
+          },
+          {
+            "name": "end_publish_ts",
+            "type": "i64"
+          },
+          {
+            "name": "end_slot",
+            "type": "u64"
+          },
+          {
+            "name": "end_ts",
+            "type": "i64"
+          },
+          {
+            "name": "f_e9",
+            "type": "u64"
+          },
+          {
+            "name": "a",
+            "type": "u64"
+          },
+          {
+            "name": "b",
+            "type": "u64"
+          },
+          {
+            "name": "stake_after",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Side",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Long"
+          },
+          {
+            "name": "Short"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Table",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "house",
+            "type": "pubkey"
+          },
+          {
+            "name": "seq",
+            "type": "u64"
+          },
+          {
+            "name": "trader",
+            "type": "pubkey"
+          },
+          {
+            "name": "market",
+            "type": "u8"
+          },
+          {
+            "name": "side",
+            "type": {
+              "defined": {
+                "name": "Side"
+              }
+            }
+          },
+          {
+            "name": "lev",
+            "type": "u16"
+          },
+          {
+            "name": "m",
+            "type": "u64"
+          },
+          {
+            "name": "k",
+            "type": "u8"
+          },
+          {
+            "name": "e_bps",
+            "type": "u16"
+          },
+          {
+            "name": "delay_min",
+            "type": "u16"
+          },
+          {
+            "name": "delay_max",
+            "type": "u16"
+          },
+          {
+            "name": "fill_window",
+            "type": "u16"
+          },
+          {
+            "name": "close_window",
+            "type": "u16"
+          },
+          {
+            "name": "stale_secs",
+            "type": "u32"
+          },
+          {
+            "name": "expiry_secs",
+            "type": "u32"
+          },
+          {
+            "name": "state",
+            "type": {
+              "defined": {
+                "name": "TableState"
+              }
+            }
+          },
+          {
+            "name": "request_slot",
+            "type": "u64"
+          },
+          {
+            "name": "request_publish_ts",
+            "type": "i64"
+          },
+          {
+            "name": "p0",
+            "type": "u64"
+          },
+          {
+            "name": "fill_slot",
+            "type": "u64"
+          },
+          {
+            "name": "fill_publish_ts",
+            "type": "i64"
+          },
+          {
+            "name": "fill_ts",
+            "type": "i64"
+          },
+          {
+            "name": "close_request_slot",
+            "type": "u64"
+          },
+          {
+            "name": "close_publish_ts",
+            "type": "i64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "TableState",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Requested"
+          },
+          {
+            "name": "Open"
+          },
+          {
+            "name": "CloseRequested"
+          }
+        ]
+      }
+    }
+  ]
+}

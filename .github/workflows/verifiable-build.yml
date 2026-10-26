@@ -1,0 +1,32 @@
+name: verifiable-build
+on: [push, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    env:
+      NO_DNA: '1'
+    steps:
+      - uses: actions/checkout@v5.0.0
+      - name: Reject unfilled metadata
+        run: '! grep -R -E "__RU""IN_(URL|CONTACTS|REPO)__" program/programs program/client README.md SECURITY.md'
+      - name: Install verifier
+        run: cargo install solana-verify --version 0.5.2 --locked
+      - name: Build
+        working-directory: program
+        run: solana-verify build --library-name ruin
+      - name: Hash artifact
+        working-directory: program
+        run: |
+          solana-verify get-executable-hash target/deploy/ruin.so | tee ../ruin.executable-hash
+          cp target/deploy/ruin.so ../ruin.so
+          cd ..
+          sha256sum ruin.so | tee ruin.so.sha256
+      - uses: actions/upload-artifact@v4.6.2
+        with:
+          name: ruin-verifiable
+          path: |
+            ruin.so
+            ruin.so.sha256
+            ruin.executable-hash

@@ -1,0 +1,9 @@
+tunnel: @TUNNEL_ID@
+credentials-file: @CREDENTIALS_FILE@
+no-autoupdate: true
+protocol: http2
+edge-ip-version: "4"
+ingress:
+  - hostname: data.ruin.live
+    service: http://127.0.0.1:8788
+  - service: http_status:404

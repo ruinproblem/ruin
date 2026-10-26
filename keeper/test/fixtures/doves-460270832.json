@@ -1,0 +1,415 @@
+{
+  "tx": {
+    "transaction": {
+      "signatures": [
+        "Wn3jVrt7C17LPR4xCsM4ydEHofXAa3iUHMcb22YuFPborsBQXyNtDcH5q5AmxZ6v2k95GNxhsHq8MCbHJrSQ24i"
+      ],
+      "message": {
+        "header": {
+          "numRequiredSignatures": 1,
+          "numReadonlySignedAccounts": 0,
+          "numReadonlyUnsignedAccounts": 6
+        },
+        "accountKeys": [
+          "DFZcDnmEYNUK1khquZzx5dQYiEyjJ3N5STqaDVLZ88ZU",
+          "ComputeBudget111111111111111111111111111111",
+          "Ed25519SigVerify111111111111111111111111111",
+          "DoVEsk76QybCEHQGzkvYPWLQu9gzNoZZZt3TPiL597e",
+          "11111111111111111111111111111111",
+          "PERPHjGBqRHArX4DySjwM6UJHiR3sWAatqfdBS2qQJu",
+          "DdwY1ELc9rRK7xNL3hTXabSFBmVrTPpfsUZSv2Y3LL1U"
+        ],
+        "recentBlockhash": "H2hvbYcPQUfBWCmkqR6t9rSEq6FraLZRUYCUuzELhwYw",
+        "instructions": [
+          {
+            "programIdIndex": 1,
+            "accounts": [],
+            "data": "J7BDD9",
+            "stackHeight": 1
+          },
+          {
+            "programIdIndex": 1,
+            "accounts": [],
+            "data": "3ja8TX5b2h1R",
+            "stackHeight": 1
+          },
+          {
+            "programIdIndex": 2,
+            "accounts": [],
+            "data": "8AW9LW2yEqHr694L5z1rX",
+            "stackHeight": 1
+          },
+          {
+            "programIdIndex": 3,
+            "accounts": [
+              0,
+              17,
+              7,
+              18,
+              4,
+              19,
+              8,
+              9,
+              10,
+              11
+            ],
+            "data": "2883UE8Mrz27Wc9yZncLjpgVRseJSPyKXkyPAb6XvaekW96noPcFTXd4Da3wdtdkhmQfq5QxCFb3MuUncWdx6pdy6K4LiXruFPt7bnXDSqfWhyAzrx2G6eGbW73dXfLTBARc1ddeYhBDBft46NmYuj8mxqiRyx2hzfRVXrds4c1kVm5TEYyGQpRhy4wqo6g8KdT2ifri5ywV9ifvsxS2rrA53MJmsUm7yf35MSut5RS2fH5h6SwDTNKGzz2nLbTv6b59ED8jVKi1iHLu79y5SCJRRm2qLWrjgAhTxD3rpKwATVVhFXEYDELDYAxrR6THzxyVLvhEkTuZqywzTmotd8a4D2DRVUoeiR1ny1RHyvjBzLtPLLGt9oHbXxRuE7SZCtJwTj1AcvH8att4ANDZnHZtW8NSVLp5ja53W8LYZ4j",
+            "stackHeight": 1
+          },
+          {
+            "programIdIndex": 3,
+            "accounts": [
+              0,
+              12,
+              8,
+              20,
+              21
+            ],
+            "data": "BFFRQh5PNJx",
+            "stackHeight": 1
+          },
+          {
+            "programIdIndex": 3,
+            "accounts": [
+              0,
+              13,
+              9,
+              22,
+              23
+            ],
+            "data": "BFFRQh5PNJx",
+            "stackHeight": 1
+          },
+          {
+            "programIdIndex": 3,
+            "accounts": [
+              0,
+              14,
+              10,
+              24,
+              25
+            ],
+            "data": "BFFRQh5PNJx",
+            "stackHeight": 1
+          },
+          {
+            "programIdIndex": 3,
+            "accounts": [
+              0,
+              15,
+              11,
+              26,
+              27
+            ],
+            "data": "BFFRQh5PNJx",
+            "stackHeight": 1
+          },
+          {
+            "programIdIndex": 5,
+            "accounts": [
+              0,
+              28,
+              16,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              6,
+              14,
+              13,
+              12,
+              15,
+              35,
+              36
+            ],
+            "data": "U6dpRmfTQQX",
+            "stackHeight": 1
+          }
+        ],
+        "addressTableLookups": [
+          {
+            "accountKey": "9xwuyEDMEV6Nyya9o3VQNkFusR1V56ntk3LcPAkPXbAt",
+            "writableIndexes": [
+              65,
+              85,
+              84,
+              83,
+              86,
+              59,
+              60,
+              61,
+              62,
+              3
+            ],
+            "readonlyIndexes": [
+              64,
+              66,
+              35,
+              53,
+              76,
+              54,
+              78,
+              58,
+              80,
+              56,
+              82,
+              0,
+              4,
+              5,
+              9,
+              13,
+              17,
+              21,
+              63,
+              92
+            ]
+          }
+        ]
+      }
+    },
+    "meta": {
+      "err": null,
+      "status": {
+        "Ok": null
+      },
+      "fee": 10691,
+      "preBalances": [
+        92982993784,
+        1,
+        1,
+        1151440,
+        1,
+        1141552,
+        8741760,
+        1003973597,
+        2860560,
+        2860560,
+        2860560,
+        2860560,
+        3633130,
+        3633130,
+        3633134,
+        3633130,
+        102463178,
+        3542640,
+        1141440,
+        0,
+        2860570,
+        2115840,
+        2860570,
+        2115840,
+        2860571,
+        2115840,
+        2860570,
+        2115840,
+        1727576,
+        11920386374,
+        14810884,
+        14810882,
+        14810882,
+        14810883,
+        14810880,
+        3633130,
+        3633120
+      ],
+      "postBalances": [
+        92982983092,
+        1,
+        1,
+        1151440,
+        1,
+        1141552,
+        8741760,
+        1003973598,
+        2860560,
+        2860560,
+        2860560,
+        2860560,
+        3633130,
+        3633130,
+        3633134,
+        3633130,
+        102463178,
+        3542640,
+        1141440,
+        0,
+        2860570,
+        2115840,
+        2860570,
+        2115840,
+        2860571,
+        2115840,
+        2860570,
+        2115840,
+        1727576,
+        11920386374,
+        14810884,
+        14810882,
+        14810882,
+        14810883,
+        14810880,
+        3633130,
+        3633120
+      ],
+      "innerInstructions": [
+        {
+          "index": 3,
+          "instructions": [
+            {
+              "programIdIndex": 18,
+              "accounts": [
+                0,
+                17,
+                7,
+                4,
+                19
+              ],
+              "data": "E86deqZMitKoghk72wNKxmJ36BUu41p4SAPscr6oF4oxswdVdjGKDxFUGxAuHygEzVRLDa6GFqruyU3qytUA7A9AEZBkWFGuqCzKVaKwYsjpgfgUS3YXHDEdoCB1cX18FsSevCB9PD1ca44rGnDh85EffwniUHK8NFcE598DuiCPks6JjWue9cEtRY2y5SHD3bsxkoXwmTUxAzsXZph9tAo7qf8TeqkwZ12pYrJHeEPhRPLHhvnzJSt1ugPNoef2Dkk1PYEb53GjqqSga8HpP4YnCPWNieJYf8aFqfobJ3oFN8WeU19Wce2AqhUStsBDVtDjQ4yvMrBfHR8WYtNawpR5vQvYCzVvK9PzhEMik5UD8cWYMzps9Ys36WBSzH3prZthwE1Aa1g9zhX8Q1UEvqThnP1UTHzwB28x3zPw5",
+              "stackHeight": 2
+            },
+            {
+              "programIdIndex": 4,
+              "accounts": [
+                0,
+                7
+              ],
+              "data": "3Bxs412MvVNQj175",
+              "stackHeight": 3
+            }
+          ]
+        }
+      ],
+      "logMessages": [
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program ComputeBudget111111111111111111111111111111 invoke [1]",
+        "Program ComputeBudget111111111111111111111111111111 success",
+        "Program DoVEsk76QybCEHQGzkvYPWLQu9gzNoZZZt3TPiL597e invoke [1]",
+        "Program log: Instruction: UpdateManyWithPythLazer",
+        "Program pytd2yyk641x7ak7mkaasSJVXh6YYZnC7wTmtgAyxPt invoke [2]",
+        "Program log: Instruction: VerifyMessage",
+        "Program 11111111111111111111111111111111 invoke [3]",
+        "Program 11111111111111111111111111111111 success",
+        "Program pytd2yyk641x7ak7mkaasSJVXh6YYZnC7wTmtgAyxPt consumed 12900 of 269039 compute units",
+        "Program return: pytd2yyk641x7ak7mkaasSJVXh6YYZnC7wTmtgAyxPt gO/B9IDFYVrz+2c9Qih+mT2p+8NQa25B36MpUIIMLmzCAAAAddPHkwA7kaF4XgYAAwUHAAAABACBrfUFAAAAAAT4/wXoHAAAAAAAAAwBADuRoXheBgAGAAAABAD3m1RsAgAAAAT4/wVrQDIAAAAAAAwBADuRoXheBgABAAAABADPq/00ZgcAAAT4/wXSuJXXAQAAAAwBADuRoXheBgACAAAABADJxsu9NwAAAAT4/wUZ6w8OAAAAAAwBADuRoXheBgCDCwAABAAojPUFAAAAAAT4/wUvMgAAAAAAAAwBADuRoXheBgA=",
+        "Program pytd2yyk641x7ak7mkaasSJVXh6YYZnC7wTmtgAyxPt success",
+        "Program DoVEsk76QybCEHQGzkvYPWLQu9gzNoZZZt3TPiL597e consumed 36257 of 277617 compute units",
+        "Program return: DoVEsk76QybCEHQGzkvYPWLQu9gzNoZZZt3TPiL597e gO/B9IDFYVrz+2c9Qih+mT2p+8NQa25B36MpUIIMLmzCAAAAddPHkwA7kaF4XgYAAwUHAAAABACBrfUFAAAAAAT4/wXoHAAAAAAAAAwBADuRoXheBgAGAAAABAD3m1RsAgAAAAT4/wVrQDIAAAAAAAwBADuRoXheBgABAAAABADPq/00ZgcAAAT4/wXSuJXXAQAAAAwBADuRoXheBgACAAAABADJxsu9NwAAAAT4/wUZ6w8OAAAAAAwBADuRoXheBgCDCwAABAAojPUFAAAAAAT4/wUvMgAAAAAAAAwBADuRoXheBgA=",
+        "Program DoVEsk76QybCEHQGzkvYPWLQu9gzNoZZZt3TPiL597e success",
+        "Program DoVEsk76QybCEHQGzkvYPWLQu9gzNoZZZt3TPiL597e invoke [1]",
+        "Program log: Instruction: UpdateAgPrice2",
+        "Program log: pyth lazer price: 8135557098447, timestamp: 1792722060",
+        "Program log: cl price: 8134757522284, timestamp: 1792722057",
+        "Program log: redstone price: 8134174912000, timestamp: 1792722050",
+        "Program log: Ag price v2 updated from pyth lazer",
+        "Program DoVEsk76QybCEHQGzkvYPWLQu9gzNoZZZt3TPiL597e consumed 10647 of 241360 compute units",
+        "Program DoVEsk76QybCEHQGzkvYPWLQu9gzNoZZZt3TPiL597e success",
+        "Program DoVEsk76QybCEHQGzkvYPWLQu9gzNoZZZt3TPiL597e invoke [1]",
+        "Program log: Instruction: UpdateAgPrice2",
+        "Program log: pyth lazer price: 239407449801, timestamp: 1792722060",
+        "Program log: cl price: 239396132034, timestamp: 1792722057",
+        "Program log: redstone price: 239370964624, timestamp: 1792722050",
+        "Program log: Ag price v2 updated from pyth lazer",
+        "Program DoVEsk76QybCEHQGzkvYPWLQu9gzNoZZZt3TPiL597e consumed 10623 of 230713 compute units",
+        "Program DoVEsk76QybCEHQGzkvYPWLQu9gzNoZZZt3TPiL597e success",
+        "Program DoVEsk76QybCEHQGzkvYPWLQu9gzNoZZZt3TPiL597e invoke [1]",
+        "Program log: Instruction: UpdateAgPrice2",
+        "Program log: pyth lazer price: 10407418871, timestamp: 1792722060",
+        "Program log: cl price: 10407057496, timestamp: 1792722057",
+        "Program log: redstone price: 10402667520, timestamp: 1792722042",
+        "Program log: Ag price v2 updated from pyth lazer",
+        "Program DoVEsk76QybCEHQGzkvYPWLQu9gzNoZZZt3TPiL597e consumed 12111 of 220090 compute units",
+        "Program DoVEsk76QybCEHQGzkvYPWLQu9gzNoZZZt3TPiL597e success",
+        "Program DoVEsk76QybCEHQGzkvYPWLQu9gzNoZZZt3TPiL597e invoke [1]",
+        "Program log: Instruction: UpdateAgPrice2",
+        "Program log: pyth lazer price: 99986817, timestamp: 1792722060",
+        "Program log: cl price: 99985935, timestamp: 1792722051",
+        "Program log: redstone price: 99980928, timestamp: 1792722012",
+        "Program log: Ag price v2 updated from pyth lazer",
+        "Program DoVEsk76QybCEHQGzkvYPWLQu9gzNoZZZt3TPiL597e consumed 15039 of 207979 compute units",
+        "Program DoVEsk76QybCEHQGzkvYPWLQu9gzNoZZZt3TPiL597e success",
+        "Program PERPHjGBqRHArX4DySjwM6UJHiR3sWAatqfdBS2qQJu invoke [1]",
+        "Program log: Instruction: RefreshAssetsUnderManagement",
+        "Program log: doves ag price: 10407418871, publish time: 1792722060",
+        "Program log: doves ag price: 239407449801, publish time: 1792722060",
+        "Program log: doves ag price: 8135557098447, publish time: 1792722060",
+        "Program log: doves ag price: 99986817, publish time: 1792722060",
+        "Program log: doves ag price: 99978480, publish time: 1792722052",
+        "Program PERPHjGBqRHArX4DySjwM6UJHiR3sWAatqfdBS2qQJu consumed 55643 of 192940 compute units",
+        "Program PERPHjGBqRHArX4DySjwM6UJHiR3sWAatqfdBS2qQJu success"
+      ],
+      "preTokenBalances": [],
+      "postTokenBalances": [],
+      "rewards": null,
+      "loadedAddresses": {
+        "writable": [
+          "Gx4MBPb1vqZLJajZmsKLg8fGw9ErhoKsR8LeKcCKFyak",
+          "FxSvTMvZS9S1jjjixHPh7QEn99WuVWaEHqvw8NqfWmB8",
+          "9QEL8K51uZrqoqTp6Zfjmr65gYqvivVrd2Yg5bo6joGV",
+          "A5d4aY4K4BYEtXdAY7WNBHTKxRMeyAA6RYHWVYEW22Fe",
+          "G4kGyw5c4mMv8PuPotHnBuqP82s2d54Hd8sfKfW4jpjA",
+          "hUqAT1KQ7eW1i6Csp9CXYtpPfSAvi835V7wKi5fRfmC",
+          "AFZnHPzy4mvVCffrVwhewHbFc93uTHvDSFrVH7GtfXF1",
+          "FYq2BWQ1V5P1WFBqr3qB2Kb5yHVvSv7upzKodgQE5zXh",
+          "6Jp2xZUTWdDD2ZyUPRzeMdc6AFQ5K3pFgZxk2EijfjnM",
+          "5BUwFW4nRbftYTDMbgxykoFWqWHPzahFSNAaaaJtVKsq"
+        ],
+        "readonly": [
+          "3rdJbqfnagQ4yx9HXJViD4zc4xpiSqmFsKpPuSCQVyQL",
+          "pytd2yyk641x7ak7mkaasSJVXh6YYZnC7wTmtgAyxPt",
+          "Sysvar1nstructions1111111111111111111111111",
+          "A6F8mvoM8Qc9wTaKjrD1B5Fgpp6NhPQyJLWXeafWrbsV",
+          "74o5fhuMC33HgfUqvv2TdpYiKvEWfcRTS1E8zxK6ESjN",
+          "BNQzYvnidN8vVVn78xh6wgLo5ozmV8Dx8AE8rndqeLEe",
+          "HPmPoq3eUTPePsDB5U4G6msu5RpeZHhMemc5VnqxQ9Lx",
+          "FWLXDDgW2Qm2VuX8MdV99VYpo6X1HLEykUjfAsjz2G78",
+          "9FboGHATJTgJA7fzG3fKeV1VuLqDsV5HtCGUR2PqZor3",
+          "3Z4gQ5ujXZSYeVyPhkakVcrmyMxhAk6VT2NYSVV3RGGU",
+          "6sX9HsaAPhAT1MCskQFTjreuNCqFgkJWKJ4hfdvTbJET",
+          "H4ND9aYttUVLFmNypZqLjZ52FYiGvdEB45GmwNoKEjTj",
+          "27G8MtK7VtTcCHkpASjSDdkWWYfoqT6ggEuKidVJidD4",
+          "7xS2gz2bTp3fwCC7knJvUWTEU9Tycczu6VhJYKgi1wdz",
+          "AQCGyheWPLeo6Qp9WpYS9m3Qj479t7R636N9ey1rEjEn",
+          "5Pv3gM9JrFFH883SWAhvJC9RPYmo8UNxuFtv5bMMALkm",
+          "G18jKKXQwBbrHeiK3C9MRXhkHsLHf7XgCSisykV46EZa",
+          "4vkNeXiYEUizLdrpdPS1eC2mccyM4NUPRtERrk6ZETkk",
+          "Fgc93D641F8N2d1xLjQ4jmShuD3GE3BsCXA56KBQbF5u",
+          "9DRrwc4hSMQouw3ptpHXtQXVNHoqwyqLaK6NWztWTDin"
+        ]
+      },
+      "computeUnitsConsumed": 140620,
+      "costUnits": 149887
+    },
+    "version": 0,
+    "slot": 460270832,
+    "blockTime": 1792722060
+  },
+  "expected": [
+    {
+      "feed": "hUqAT1KQ7eW1i6Csp9CXYtpPfSAvi835V7wKi5fRfmC",
+      "market": "BTC",
+      "price": "8135557098447",
+      "publish_ts": 1792722060,
+      "slot": 460270832,
+      "recv_ms": 1792722060000
+    },
+    {
+      "feed": "AFZnHPzy4mvVCffrVwhewHbFc93uTHvDSFrVH7GtfXF1",
+      "market": "ETH",
+      "price": "239407449801",
+      "publish_ts": 1792722060,
+      "slot": 460270832,
+      "recv_ms": 1792722060000
+    },
+    {
+      "feed": "FYq2BWQ1V5P1WFBqr3qB2Kb5yHVvSv7upzKodgQE5zXh",
+      "market": "SOL",
+      "price": "10407418871",
+      "publish_ts": 1792722060,
+      "slot": 460270832,
+      "recv_ms": 1792722060000
+    }
+  ]
+}

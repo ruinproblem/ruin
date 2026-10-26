@@ -1,0 +1,28 @@
+{
+  "name": "ruin-program",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate": "node scripts/generate.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "build": "sh scripts/build.sh"
+  },
+  "dependencies": {
+    "@solana/kit": "8.4.0"
+  },
+  "devDependencies": {
+    "litesvm": "1.5.0",
+    "vitest": "5.0.3",
+    "codama": "1.11.0",
+    "@codama/nodes-from-anchor": "1.5.6",
+    "@codama/renderers-js": "2.5.0",
+    "@solana-program/token": "0.17.0",
+    "@solana-program/token-2022": "0.19.0",
+    "@solana-program/system": "0.15.0",
+    "@types/node": "26.0.0",
+    "typescript": "6.0.2",
+    "tsx": "4.21.0"
+  }
+}

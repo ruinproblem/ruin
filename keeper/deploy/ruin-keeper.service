@@ -1,0 +1,22 @@
+[Unit]
+Description=ruin keeper
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=@REPO@/keeper
+Environment="PATH=@PATH@"
+Environment=NO_DNA=1
+Environment=RUIN_CLUSTER=@CLUSTER@
+Environment="KEEPER_KEYPAIR=@SIGNER@"
+Environment="TAPE_DATA_DIR=@DATA@"
+Environment=KEEPER_ALLOW_MAINNET=1
+ExecStart=@NPM@ run keeper
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=default.target
