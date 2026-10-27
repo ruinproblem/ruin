@@ -27,6 +27,8 @@ export class Publisher {
     readonly ruinRpc: RpcPool,
     readonly state?: () => unknown,
     readonly http?: () => unknown,
+    /** The program's bet expiry; rows wait for it when given. */
+    readonly expiry?: () => number | undefined,
   ) {}
   /** Settled rows do not change, so each path is computed once per signature and event index. */
   ruinRow(sig: string, index: number, row: any) {
@@ -75,6 +77,8 @@ export class Publisher {
   calculate() {
     const cursor = this.store.get("yolo-cursor");
     if (!cursor) return;
+    const expirySecs = this.expiry?.();
+    if (this.expiry && !expirySecs) return;
     const pending = this.store.db
       .prepare("SELECT 1 FROM results WHERE status='pending' LIMIT 1")
       .get();
@@ -120,6 +124,8 @@ export class Publisher {
           pairs.get(t.id),
           samples.get(t.market) ?? [],
           (a, end) => this.covered(t.market, a, end),
+          undefined,
+          expirySecs,
         );
         put.run(
           t.id,

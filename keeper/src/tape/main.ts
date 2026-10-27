@@ -41,6 +41,7 @@ const recorder = new DovesRecorder(store, source),
     ruin,
     state ? () => state.status() : undefined,
     () => server.stats(),
+    state ? () => state.config?.value.expirySecs : undefined,
   );
 const chain = new ChainReader(ruin, resolve(dataDir(), "public"), receipts, () =>
   state ? [...state.houses].filter(([, h]) => h.value.accepting).map(([key]) => key) : []);

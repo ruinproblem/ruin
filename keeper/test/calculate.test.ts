@@ -251,6 +251,47 @@ describe("S1 integer counterfactual rows", () => {
     expect(r.window.h).toBe(0);
   });
 });
+describe("S1 peaks past the 10-division line", () => {
+  const exit = { ...close, executedAt: "1030", heldFor: 30 };
+  const path = (...pts: [number, string][]) => [sample(1000), ...pts.map(([t, p]) => sample(t, p))];
+  it("a bet over the house line is followed to the trader's line", () => {
+    const r = calculate(exit, open, path([1005, "10050000000"], [1010, "10110000000"], [1015, "10350000000"], [1020, "9980000000"], [1025, "10600000000"]), () => true, 2000);
+    expect([r.row.c, r.window.h, r.window.pk]).toEqual([1, 1, 35]);
+  });
+  it("the peak stops at 100 divisions", () => {
+    const r = calculate(exit, open, path([1010, "10110000000"], [1015, "11500000000"]), () => true, 2000);
+    expect(r.window.pk).toBe(100);
+  });
+  it("a gap in the record past the line keeps only the peak up to the line", () => {
+    const r = calculate(exit, open, path([1010, "10110000000"], [1015, "10350000000"], [1020, "9980000000"]), (_a, end) => end <= 1010, 2000);
+    expect(r.window.pk).toBe(11);
+  });
+  it("a bet whose trader line came first is not followed after it", () => {
+    const r = calculate(exit, open, path([1005, "9980000000"], [1010, "10500000000"]), () => true, 2000);
+    expect([r.row.c, r.window.pk]).toEqual([-1, 0]);
+  });
+  it("the publisher computes no row before it has the program's expiry", () => {
+    const store = new Store(":memory:");
+    const put = store.db.prepare("INSERT INTO trades VALUES(?,?,?,?,?)");
+    put.run("open", 1, 1000, "open", JSON.stringify(open));
+    put.run("close", 2, 1010, "close", JSON.stringify(close));
+    store.set("yolo-cursor", "2");
+    let expiry: number | undefined;
+    const publisher = new Publisher(store, "", null as any, null as any, null as any, undefined, undefined, () => expiry);
+    const count = () => (store.db.prepare("SELECT COUNT(*) n FROM results").get() as any).n;
+    publisher.calculate();
+    expect(count()).toBe(0);
+    expiry = 259200;
+    publisher.calculate();
+    expect(count()).toBe(1);
+  });
+  it("the bet's expiry is the program's", () => {
+    const e = { ...close, heldFor: 90000, executedAt: "91000", price: "101000000000000" };
+    const samples = [sample(1000), sample(87400)];
+    expect(calculate(e, open, samples, () => true, 92000).status).toBe("expired");
+    expect(calculate(e, open, samples, () => true, 92000, 259200).status).toBe("rows");
+  });
+});
 describe("S2 matching", () => {
   it("equivalent opens pair in cursor order and ambiguous prices leave opens unused", () => {
     const a = { ...open, id: "a" },

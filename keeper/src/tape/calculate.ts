@@ -62,12 +62,13 @@ export function calculate(
   samples: Sample[],
   covered: (a: Sample, end: number) => boolean | "pending",
   now = Math.floor(Date.now() / 1000),
+  expirySecs = 86400,
 ): Calculation {
   if (!open) return { status: "unmatched" };
   const t0 = Number(open.executedAt),
     te = Number(exit.executedAt),
     held = Number(exit.heldFor),
-    tx = t0 + 86400;
+    tx = t0 + expirySecs;
   const P0 = BigInt(open.price),
     PE = BigInt(exit.price),
     m = BigInt(open.margin),
@@ -85,7 +86,9 @@ export function calculate(
   if (!baseline) return { status: "noRecord", oid: open.id };
   const D0 = BigInt(baseline.price),
     limit = exit.kind === "close" ? Math.min(te, tx) : Math.min(tx, te + 3600);
-  let hit: Sample | undefined, decision: ReturnType<typeof split> | undefined;
+  let hit: Sample | undefined,
+    hitIndex = -1,
+    decision: ReturnType<typeof split> | undefined;
   const path: { t: number; n: bigint; den: bigint }[] = [
     { t: 0, n: P0, den: 1n },
   ];
@@ -108,6 +111,7 @@ export function calculate(
     path.push({ t: v.publish_ts - t0, n: P0 * BigInt(v.price), den: D0 });
     if (result.line) {
       hit = v;
+      hitIndex = i;
       decision = result;
       break;
     }
@@ -201,6 +205,36 @@ export function calculate(
         s * L * (Number(point.n) / Number(point.den) / Number(P0) - 1),
       );
     }
+    /* A house whose line is past 10 divisions is still in the bet after the 10-division line:
+       follow the price on to the trader's line or the bet's end, up to 100 divisions. */
+    let far = peak;
+    if (hit && c === 1) {
+      let ended = false,
+        last = hit.publish_ts;
+      for (let i = hitIndex + 1; i < samples.length; i++) {
+        const v = samples[i];
+        if (
+          v.publish_ts > limit ||
+          (exit.kind === "close" && v.publish_ts === limit)
+        )
+          break;
+        last = v.publish_ts;
+        far = Math.max(far, s * L * (Number(v.price) / Number(D0) - 1));
+        if (
+          split({ side, lev: L, m, k: 100, eBps: 700, p0: D0, p: BigInt(v.price) })
+            .line
+        ) {
+          ended = true;
+          break;
+        }
+      }
+      if (!ended && exit.kind === "close" && te <= tx) {
+        last = te;
+        far = Math.max(far, s * L * (Number(PE) / Number(P0) - 1));
+      }
+      /* a gap in the record past the 10-division line leaves only what is known: it reached 10 */
+      if (covered(baseline, last) !== true) far = peak;
+    }
     window = {
       t0,
       s,
@@ -208,7 +242,7 @@ export function calculate(
       d,
       h: c === 1 ? 1 : 0,
       c: delta(cents),
-      pk: c === 1 ? 10 : Math.round(Math.min(10, peak) * 100) / 100,
+      pk: Math.round(Math.min(100, far) * 100) / 100,
     };
   }
   return { status: "rows", row, window, oid: open.id };
